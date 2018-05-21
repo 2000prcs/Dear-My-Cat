@@ -24,13 +24,19 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      username: ''
     };
   }
 
   render() {
+
+    // const location = {
+    //   pathname: '/type',
+    //   state: { username: this.state.username }
+    // };
+
     return (
-      <SafeAreaView>
+      <SafeAreaView >
         <ScrollView>
           <StatusBar barStyle='light-content' />
             <KeyboardAvoidingView behavior='padding' styles={styles.container}>
@@ -46,6 +52,7 @@ export default class Login extends Component {
                       returnKeyType='next'
                       autoCorrect={false}
                       onSubmitEditing={() => this.refs.txtPassword.focus()}
+                      onChangeText={(username) => this.setState({ username })}
                     />
                     <TextInput 
                       style={styles.input} 
@@ -56,7 +63,7 @@ export default class Login extends Component {
                       autoCorrect={false}
                       ref={'txtPassword'}
                     />
-                    <Button style={{ alignSelf: 'stretch' }} rounded warning onPress={() => this.props.history.push('/type')}>
+                   <Button style={{ alignSelf: 'stretch' }} rounded warning onPress={() => this.props.history.push('/question', this.state.username)}>
                       <Text style={styles.buttonText}>Login</Text>
                     </Button>
                   </View>
