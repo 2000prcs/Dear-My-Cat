@@ -1,4 +1,4 @@
-class Cat {
+class Cats {
   constructor() {
     this.personality = null;
     this.like = null;
@@ -11,35 +11,35 @@ const Images = [
   [
   {
     type: 'Beautiful',
-    uri: require('./images/Cats/Beautiful.png')
+    url: require('./images/Cats/Beautiful.png')
   },
   {
     type: 'Cute',
-    uri: require('./images/Cats/Cute.png')
+    url: require('./images/Cats/Cute.png')
   },
   {
     type: 'Dangerous',
-    uri: require('./images/Cats/Dangerous.png')
+    url: require('./images/Cats/Dangerous.png')
   }
 ],
 [
   {
     type: 'Funny',
-    uri: require('./images/Cats/Funny.png')
+    url: require('./images/Cats/Funny.png')
   },
   {
     type: 'Geeky',
-    uri: require('./images/Cats/Geeky.png')
+    url: require('./images/Cats/Geeky.png')
   },
   {
     type: 'Sexy',
-    uri: require('./images/Cats/Sexy.png')
+    url: require('./images/Cats/Sexy.png')
   }
 ],
 [
   {
     type: 'Smart',
-    uri: require('./images/Cats/Smart.png')
+    url: require('./images/Cats/Smart.png')
   },
   // {
   //   type: 'Stoic',
@@ -47,11 +47,11 @@ const Images = [
   // },
     {
     type: 'Kind',
-    uri: require('./images/Cats/Kind.png')
+    url: require('./images/Cats/Kind.png')
   },
   { 
     type: 'Artistic',
-    uri: require('./images/Cats/Artistic.png')
+    url: require('./images/Cats/Artistic.png')
   },
   // {
   //   type: 'Wealthy',
@@ -61,5 +61,5 @@ const Images = [
 ];
 
 
-module.exports.Cat = Cat;
+module.exports.Cats = Cats;
 module.exports.Images = Images;

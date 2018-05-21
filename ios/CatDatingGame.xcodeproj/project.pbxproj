@@ -12,6 +12,7 @@
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
+		00E356F31AD99517003FC87E /* CatDatingGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CatDatingGameTests.m */; };
 		04C740D0B0C94AE7B568B44F /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2F1F90A40CB40E196C7C4D2 /* Ionicons.ttf */; };
 		062CFEE6388640CD80BCC183 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC017B6F4F114D7CB52A5A3C /* SimpleLineIcons.ttf */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
@@ -37,6 +38,7 @@
 		2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */; };
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* CatDatingGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CatDatingGameTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		3B22803A59A14418AD1C5206 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CFEE0FE414A74045A30D5FE6 /* Octicons.ttf */; };
 		46F858B882B043E189E11B75 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70D5B21990B7490CA27F3310 /* EvilIcons.ttf */; };
@@ -336,7 +338,7 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
-		CD7A6AA220B15C480066F377 /* PBXContainerItemProxy */ = {
+		CD23120620B25A64007105DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 174F9AA472324D4C97D1649E /* RNVectorIcons.xcodeproj */;
 			proxyType = 2;
@@ -635,7 +637,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				927AF92736494F0694F61080 /* Resources */,
-				CD7A6A7920B15C470066F377 /* Recovered References */,
+				CD2311DD20B25A5B007105DC /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -692,7 +694,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CD7A6A7920B15C470066F377 /* Recovered References */ = {
+		CD2311DD20B25A5B007105DC /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				ADCA1B57BAC345A5BF844F11 /* libRNVectorIcons.a */,
@@ -700,10 +702,10 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		CD7A6A9F20B15C480066F377 /* Products */ = {
+		CD2311DE20B25A5B007105DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CD7A6AA320B15C480066F377 /* libRNVectorIcons.a */,
+				CD23120720B25A64007105DC /* libRNVectorIcons.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -871,7 +873,7 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = CD7A6A9F20B15C480066F377 /* Products */;
+					ProductGroup = CD2311DE20B25A5B007105DC /* Products */;
 					ProjectRef = 174F9AA472324D4C97D1649E /* RNVectorIcons.xcodeproj */;
 				},
 			);
@@ -1145,11 +1147,11 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CD7A6AA320B15C480066F377 /* libRNVectorIcons.a */ = {
+		CD23120720B25A64007105DC /* libRNVectorIcons.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNVectorIcons.a;
-			remoteRef = CD7A6AA220B15C480066F377 /* PBXContainerItemProxy */;
+			remoteRef = CD23120620B25A64007105DC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1247,6 +1249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E356F31AD99517003FC87E /* CatDatingGameTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1272,6 +1275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DCD954D1E0B4F2C00145EB5 /* CatDatingGameTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
