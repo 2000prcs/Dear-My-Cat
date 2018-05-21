@@ -3,10 +3,10 @@ import { View, StyleSheet, ImageBackground } from 'react-native';
 import { Link } from 'react-router-native';
 import { Button, Text } from 'native-base';
 
-const Home = ({ history }) => (
+const EndingIntro = ({ history }) => (
   <View style={styles.container}>      
-      <Text style={styles.titleText}>Hi {history.location.state}!</Text>
-      <Text style={styles.titleText}>What Is Your Ideal Type?</Text>
+      <Text style={styles.titleText}>It's time...</Text>
+      <Text style={styles.titleText}>Your Cat and </Text>
       <Button style={styles.btnStyle} rounded warning onPress={() => history.push('/type', history.location.state)}>
         <Text>I think I Know My Type</Text>
       </ Button> 
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home;
+export default EndingIntro;

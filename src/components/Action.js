@@ -20,18 +20,68 @@ import {
 } from 'native-base';
 import { Link } from 'react-router-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
+import {   
+  Cats,
+  Images,
+  talks,
+  talkingImage,
+  feedTime,
+  feedingImage,
+  snackImage,
+  playTime,
+  playingImage,
+  dating,
+  places
+} from '../Helper';
 
 
 export default class Action extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      img: require('../images/sleeping_beauty.gif'),
+      text: 'Nyan! Stop staring at me and do something! I\'m hungry and bored :(',
+      cat: new Cats()
+    };
+  }
 
+  handleTalking() {
+    const index = Math.floor(Math.random() * talks.length);
+    this.setState({ text: talks[index] });
+    const imageIndex = Math.floor(Math.random() * Object.keys(talkingImage).length);
+    this.setState({ img: talkingImage[`talk${imageIndex}`] });
+  }
+
+  handleFeeding() {
+    console.log(this.state.cat);
+    const index = Math.floor(Math.random() * feedTime.length);
+    this.setState({ text: feedTime[index] });
+    const imageIndex = Math.floor(Math.random() * Object.keys(feedingImage).length);
+    this.setState({ img: feedingImage[`food${imageIndex}`] });
+  }
+
+  handlePlaying() {
+    const index = Math.floor(Math.random() * playTime.length);
+    this.setState({ text: playTime[index] });
+    // const imageIndex = Math.floor(Math.random() * Object.keys(talkingImage).length);
+    this.setState({ img: playingImage });  
+  }
+
+  handleDating() {    
+    const index = Math.floor(Math.random() * dating.length);
+    this.setState({ text: dating[index] });
+    // const imageIndex = Math.floor(Math.random() * Object.keys(talkingImage).length);
+    // this.setState({ img: talkingImage[`talk${imageIndex}`] });  
+  }
+
+
+  render() {
     console.log(this.props.history.location.state);
 
     return (
-      <Container style={{ backgroundColor: 'white'}}>
+      <Container style={{ backgroundColor: 'white' }}>
         <Header>
           <Left>
-            {console.log(this.props.history)}
             <Button hasText transparent>
             <Icon name='home' />
               <Link to='/'>
@@ -52,11 +102,10 @@ export default class Action extends Component {
           <Grid>
             <ImageBackground 
               resizeMode='cover' style={{ flex: 1 }} 
-              source={require('../images/sleeping_beauty.gif')}
-              // source={this.props.history.location.state.image}
+              ref='img'
+              source={this.state.img}
             >
-            <Row style={{ backgroundColor: 'transparent', height: 450 }}>
-            </Row>
+            <Row style={{ backgroundColor: 'transparent', height: 450 }} />
             </ImageBackground>
             <Row style={{ backgroundColor: 'transparent', height: 200 }}>
               <Col style={{ width: 120 }}>
@@ -66,9 +115,8 @@ export default class Action extends Component {
               <Card>
               <CardItem>
                 <Body>
-                  <Text>
-                    Nyan! Stop staring at me and do something! 
-                    I'm hungry and bored :(
+                  <Text ref='text'>
+                    {this.state.text}
                   </Text>
                 </Body>
               </CardItem>
@@ -79,21 +127,21 @@ export default class Action extends Component {
         </Content>
         <Footer>
           <FooterTab>
-            <Button badge vertical>
+            <Button badge vertical onPress={() => this.handleTalking()}>
               <Badge><Text>2</Text></Badge>
               <Icon name="ios-chatbubbles" />
               <Text>Talk</Text>
             </Button>
-            <Button vertical>
+            <Button vertical onPress={() => this.handleFeeding()}>
               <Icon name="restaurant" />
               <Text>Feed</Text>
             </Button>
-            <Button active badge vertical>
+            <Button active badge vertical onPress={() => this.handlePlaying()}>
               <Badge ><Text>51</Text></Badge>
               <Icon active name="ios-paw" />
               <Text>Play</Text>
             </Button>
-            <Button vertical>
+            <Button vertical onPress={() => this.handleDating()}>
               <Icon name="ios-cafe" />
               <Text>Date</Text>
             </Button>
@@ -102,4 +150,4 @@ export default class Action extends Component {
       </Container>
     );
   }
-};
+}
