@@ -12,7 +12,7 @@ import {
   Body, 
   Icon } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { Cat, Images } from '../Helper';
+import { Images } from '../Helper';
 
 
 export default class Type extends Component {
@@ -22,10 +22,11 @@ export default class Type extends Component {
     };
   }
   
-  chooseCat(type) {
+  chooseCat(type, url) {
     this.props.history.push('/cat', {
       username: this.props.history.location.state,
-      catType: type
+      catType: type,
+      image: url
     });
   }
 
@@ -34,9 +35,9 @@ export default class Type extends Component {
     
     Images.forEach((image) => {
       const catGroup = image.map(cat => {
-        const imgSource = cat.uri;
+        const imgSource = cat.url;
         return (
-          <TouchableHighlight key={cat.type} style={{ flex: 1 }} onPress={() => this.chooseCat(cat.type)}>
+          <TouchableHighlight key={cat.type} style={{ flex: 1 }} onPress={() => this.chooseCat(cat.type, imgSource)}>
             <ImageBackground resizeMode='cover' style={{ flex: 1 }} source={imgSource} >
               <Col style={{ height: 220, backgroundColor: 'transparent', justifyContent: 'center' }}>
                 <Text style={{ fontWeight: 'bold', color: 'salmon' }} >{cat.type}</Text>
@@ -49,8 +50,8 @@ export default class Type extends Component {
       group.push(catGroup);
     });
     
-    const cats = group.map(item => (
-        <Row>
+    const cats = group.map((item, index) => (
+        <Row key={index}>
           {item}
         </Row>
       ));
@@ -65,7 +66,7 @@ export default class Type extends Component {
           </Button>
         </Left>
         <Body>
-            <Title>Welcome {this.props.history.location.state}!</Title>
+            <Title>Hi {this.props.history.location.state}!</Title>
           </Body>
           <Right>
             <Button transparent>

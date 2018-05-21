@@ -10,13 +10,6 @@ import {
   TouchableWithoutFeedback,
   ScrollView 
 } from 'react-native';
-import { 
-  NativeRouter, 
-  Switch, 
-  Router, 
-  Route, 
-  Link 
-} from 'react-router-native';
 import { Button, Text } from 'native-base';
 
 
@@ -30,11 +23,6 @@ export default class Login extends Component {
 
   render() {
 
-    // const location = {
-    //   pathname: '/type',
-    //   state: { username: this.state.username }
-    // };
-
     return (
       <SafeAreaView >
         <ScrollView>
@@ -46,15 +34,16 @@ export default class Login extends Component {
                   <View style={styles.infoContainer}>
                     <TextInput 
                       style={styles.input} 
-                      placeholder='Enter username/email'
+                      placeholder='Enter your name'
                       placeholderTextColor='black'
-                      keyboardType='email-address'
-                      returnKeyType='next'
+                      // keyboardType='email-address'
+                      // returnKeyType='next'
+                      returnKeyType='go'
                       autoCorrect={false}
-                      onSubmitEditing={() => this.refs.txtPassword.focus()}
+                      // onSubmitEditing={() => this.refs.txtPassword.focus()}
                       onChangeText={(username) => this.setState({ username })}
                     />
-                    <TextInput 
+                    {/* <TextInput 
                       style={styles.input} 
                       placeholder='Enter password'
                       placeholderTextColor='black'
@@ -62,9 +51,9 @@ export default class Login extends Component {
                       secureTextEntry
                       autoCorrect={false}
                       ref={'txtPassword'}
-                    />
-                   <Button style={{ alignSelf: 'stretch' }} rounded warning onPress={() => this.props.history.push('/question', this.state.username)}>
-                      <Text style={styles.buttonText}>Login</Text>
+                    /> */}
+                   <Button style={{ alignSelf: 'center' }} rounded warning onPress={() => this.props.history.push('/question', this.state.username)}>
+                      <Text style={styles.buttonText}>I'm Ready!</Text>
                     </Button>
                   </View>
                 </View>

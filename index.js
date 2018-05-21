@@ -16,6 +16,8 @@ import Login from './src/components/Login';
 import Question from './src/components/Question';
 import Type from './src/components/Type';
 import Cat from './src/components/Cat';
+import Action from './src/components/Action';
+import Ending from './src/components/Ending';
 
 
 export default class App extends Component {
@@ -40,6 +42,8 @@ export default class App extends Component {
                 <Route exact path='/question' component={Question} />
                 <Route exact path='/type' component={Type} />
                 <Route exact path='/cat' component={Cat} />
+                <Route exact path='/action' component={Action} />
+                <Route exact path='/ending' component={Ending} />
               </Switch>
           </View>
           </ImageBackground>
