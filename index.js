@@ -1,16 +1,7 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  ImageBackground,
-  AppRegistry
-} from 'react-native';
-import { 
-  NativeRouter, 
-  Switch, 
-  Route, 
-  Link 
-} from 'react-router-native';
+import { View, ImageBackground, AppRegistry } from 'react-native';
+import { NativeRouter, Switch, Route } from 'react-router-native';
+import { Root } from 'native-base';
 import Home from './src/components/Home';
 import Login from './src/components/Login';
 import Question from './src/components/Question';
@@ -25,6 +16,7 @@ export default class App extends Component {
 
   render() {
     return (
+      <Root>
         <NativeRouter>
           <ImageBackground
             style={{
@@ -49,8 +41,9 @@ export default class App extends Component {
               </Switch>
           </View>
           </ImageBackground>
-
         </NativeRouter>
+      </Root>
+
     );
   }
 }

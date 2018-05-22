@@ -39,6 +39,7 @@ export default class Cat extends Component {
         }
       });
     });
+    
     return (
       <Container style={styles.container} >
           <ImageBackground 

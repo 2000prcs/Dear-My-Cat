@@ -2,6 +2,7 @@ class Cats {
   constructor() {
     this.like = 0;
     this.hate = 0;
+    this.fun = 0;
     this.health = 0;
     this.addict = 0;
   }
@@ -110,7 +111,11 @@ const playTime = [
   'Okay I\'m tired now. Stop!'
 ];
 
-const playingImage = require('./images/play.gif');
+const playingImage = {
+  play0: require('./images/Play/play0.gif'),
+  play1: require('./images/Play/play1.gif'),
+  play2: require('./images/Play/play2.gif'),
+};  
 
 const dating = [
   'Nyan, where do you wanna go?',
@@ -151,6 +156,40 @@ const places = {
   ]
 };
 
+const endings = {
+  happy: {
+    title: 'You two are Nyanmates!',
+    comment: 'Congrats! Your cat loves you so much! Happily ever after...',
+    url: require('./images/Ending/happy.gif'),
+  },
+  died: {
+    title: 'Your cat died!',
+    comment: 'Oh no! How dare you!', 
+    url: require('./images/Ending/died.jpg'),
+  },
+  cheat: {
+    title: 'Your cat cheated on you',
+    comment: 'I\'m sorry. Your cat fell in love with someone else...',
+    url: require('./images/Ending/cheat.gif'),
+  },
+  kidnapped: {
+    title: 'Your cat got kidnapped!',
+    comment: 'Your cat is gone! It looks like someone kidnapped your cat...',
+    url: require('./images/Ending/kidnapped.gif'),
+  }, 
+  druggy: {
+    title: 'Your cat is a druggy now',
+    comment: 'What did you do to your cat? Your cat became a catnip addict!',
+    url: require('./images/Ending/druggy.gif'),
+  },
+  transform: {
+    title: 'Your cat transformed to a special being',
+    comment: 'Whoa! Your cat is now your master. Behave yourself!',
+    url: require('./images/Ending/transform.gif'),
+  }
+};
+
+
 module.exports = {
   Cats,
   Images,
@@ -162,6 +201,7 @@ module.exports = {
   playTime,
   playingImage,
   dating,
-  places
+  places,
+  endings
 };
 
