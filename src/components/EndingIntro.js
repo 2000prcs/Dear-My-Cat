@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
 import { Button, Text } from 'native-base';
-import { endings } from '../Helper';
+import { endings } from '../Data';
 
 export default class EndingIntro extends Component {
   constructor(props) {

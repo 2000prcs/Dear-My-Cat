@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, ImageBackground } from 'react-native';
+import { ImageBackground, Alert } from 'react-native';
 import { 
   Container, 
   Header,
@@ -23,7 +23,6 @@ import { Link } from 'react-router-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import {   
   Cats,
-  Images,
   talks,
   talkingImage,
   feedTime,
@@ -33,7 +32,8 @@ import {
   playingImage,
   dating,
   places
-} from '../Helper';
+} from '../Data';
+import handleDating from '../Actionhandlers';
 
 
 export default class Action extends Component {
@@ -41,6 +41,7 @@ export default class Action extends Component {
     super(props);
     this.state = {
       showToast: false,
+      dateSpot: '',
       img: require('../images/sleeping_beauty.gif'),
       text: 'Nyan! Stop staring at me and do something! I\'m hungry and bored :(',
       catData: {
@@ -84,6 +85,18 @@ export default class Action extends Component {
   }
 
   handleFeeding() {
+    Alert.alert(
+      'Choose Food Type!',
+      'You can choose either normal catfood or yummy catnip snack!',
+      [
+        { text: 'Catfood', onPress: () => this.handleCatFood() },
+        { text: 'Catnip', onPress: () => this.handleSnack() },
+      ],
+      { cancelable: false }
+    );
+  }
+
+  handleCatFood() {
     const index = Math.floor(Math.random() * feedTime.length);
     this.setState({ text: feedTime[index] });
     if (this.state.catData.feedCount === 3) {
@@ -106,6 +119,19 @@ export default class Action extends Component {
     }
   }
 
+  handleSnack() {
+    const index = Math.floor(Math.random() * feedTime.length);
+    this.setState({ text: feedTime[index] });
+    this.state.catData.cat.like++;
+    this.state.catData.cat.addict++;
+    this.state.catData.feedCount++;
+    this.setState({ img: snackImage });
+    if (this.handleCountSun() >= 10) {
+      this.props.history.push('/endingintro', this.state.catData);
+    }
+  }
+
+
   handlePlaying() {
     const index = Math.floor(Math.random() * playTime.length);
     this.setState({ text: playTime[index] });
@@ -117,7 +143,7 @@ export default class Action extends Component {
       this.state.catData.cat.fun++;
       this.state.catData.cat.like++;
       this.state.catData.cat.hate--;
-      this.state.catData.cat.health--;
+      this.state.catData.cat.health++;
       this.state.catData.playCount++;
     }
     const imageIndex = Math.floor(Math.random() * Object.keys(playingImage).length);
@@ -128,17 +154,39 @@ export default class Action extends Component {
     }
   }
 
-  handleDating() {
+  chooseDatingSpot() {
+    Alert.alert(
+      'Choose a dating location',
+      'Where do you wanna go with your cat?',
+      [
+        { text: 'Lake', onPress: () => this.setState({ dateSpot: 'lake' }) },
+        { text: 'Animal Park', onPress: () => this.setState({ dateSpot: 'Animal Park' }) },
+        { text: 'Cat Cafe', onPress: () => this.setState({ dateSpot: 'Cat Cafe' }) },
+        { text: 'Forest', onPress: () => this.setState({ dateSpot: 'Forest' }) },
+        { text: 'Karaoke', onPress: () => this.setState({ dateSpot: 'Karaoke' }) },
+      ],
+      { cancelable: false }
+    );
+  }
+  
+  
+  handleDating()     
     console.log(this.state.catData.cat);    
     const index = Math.floor(Math.random() * dating.length);
     this.setState({ text: dating[index] });
-    // const imageIndex = Math.floor(Math.random() * Object.keys(talkingImage).length);
-    // this.setState({ img: talkingImage[`talk${imageIndex}`] });  
-  }
 
+  }
 
   render() {
     console.log(this.props.history.location.state);
+    const status = {
+      like: this.state.catData.cat.like,
+      hate: this.state.catData.cat.hate,
+      fun: this.state.catData.cat.fun,
+      health: this.state.catData.cat.health,
+      addict: this.state.catData.cat.addict,
+      leftTurn: 10 - this.handleCountSun() 
+    };
 
     return (
       <Container style={{ backgroundColor: 'white' }}>
@@ -164,22 +212,34 @@ export default class Action extends Component {
           <Grid>
             <Button 
               style={{ alignSelf: 'stretch' }}
+              warning
+              onPress={() =>
+                Toast.show({
+                  text: 'Do you think your cat is happy?',
+                  buttonText: 'I think so',
+                  type: 'warning'
+                })}
+            >
+              <Text>Like: {status.like}  Hate: {status.hate}  Fun: {status.fun}  Health: {status.health}  Addict: {status.addict} </Text> 
+            </Button>
+            <Button 
+              style={{ alignSelf: 'stretch' }}
               danger
               onPress={() =>
                 Toast.show({
-                  text: "Wrong password!",
-                  buttonText: "Okay",
-                  type: "danger"
+                  text: `${status.leftTurn} turn to go for your ending!`,
+                  buttonText: 'Got it',
+                  type: 'danger'
                 })}
             >
-              <Text>Danger Toast</Text>
+              <Text>Left Turns Until Ending: {status.leftTurn}</Text>        
             </Button>
             <ImageBackground 
               resizeMode='cover' style={{ flex: 1 }} 
               ref='img'
               source={this.state.img}
             >
-            <Row style={{ backgroundColor: 'transparent', height: 450 }} />
+            <Row style={{ backgroundColor: 'transparent', height: 400 }} />
             </ImageBackground>
             <Row style={{ backgroundColor: 'transparent', height: 200 }}>
               <Col style={{ width: 120 }}>
@@ -215,7 +275,7 @@ export default class Action extends Component {
               <Icon active name="ios-paw" />
               <Text>Play</Text>
             </Button>
-            <Button vertical onPress={() => this.handleDating()}>
+            <Button vertical onPress={() => this.chooseDatingSpot()}>
               <Icon name="ios-cafe" />
               <Text>Date</Text>
             </Button>

@@ -5,7 +5,7 @@ import { Container, Content, Header, Left, Button, Text, Icon, Body, Title, Righ
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import {   
   endings
-} from '../Helper';
+} from '../Data';
 
 export default class Ending extends Component {
   constructor(props) {

@@ -124,42 +124,57 @@ const dating = [
 ];
 
 const places = {
-  lake: [
-    'Nyan! I hate water!',
-    'Are you going to do fishing?',
-    'Nyan! We got a huge tuna!',
-    'Nothing...Nyan'
-  ],
-  animalPark: [
-    'Nyan! There are so many dogs!',
-    'What is this dog doing? It\'s waving its tail. This is freaking me out.',
-    'I\'m going to scratch this dog\'s face!',
-    'Nyan, this cat smells....good...'
-  ],
-  catCafe: [
-    'Nyan! So many cats!',
-    'This place has a lot of cat towers. I love it',
-    'Nyan, you better protect me from other cats. They\'re annoying.',
-    'I\'m going to take a nap here...Nyan..'
-  ],
-  forest: [
-    'Nyan! Everywhere is green!',
-    'Look! Birds! I\'m going to follow them.',
-    'Can I attach the bird? Yes?',
-    'Too many bugs here. Nyan'
-  ],
-  karaoke: [
-    'Nyan! I love karaoke! :D',
-    'Nyan~~ Nyan~~~~ Nyaaaan~~',
-    'Nyaaaaaaaan~~~~~~~~~',
-    'What? I\'m not finished yet. Next song!'
-  ]
+  lake: {
+    url: require('./images/Dates/lake.gif'),
+    talks: [
+      'Nyan! I hate water!',
+      'Are you going to do fishing?',
+      'Nyan! We got a huge tuna!',
+      'Nothing...Nyan'
+    ]
+  },
+  animalPark: {
+    url: require('./images/Dates/park1.gif'),
+    talks: [
+      'Nyan! There are so many dogs!',
+      'What is this dog doing? It\'s waving its tail. This is freaking me out.',
+      'I\'m going to scratch this dog\'s face!',
+      'Nyan, this cat smells....good...'
+    ]
+  },
+  catCafe: {
+    url: require('./images/Dates/cafe1.gif'),
+    talks: [
+      'Nyan! So many cats!',
+      'This place has a lot of cat towers. I love it',
+      'Nyan, you better protect me from other cats. They\'re annoying.',
+      'I\'m going to take a nap here...Nyan..'
+    ]
+  },
+  forest: {
+    url: require('./images/Dates/forest.gif'),
+    talks: [
+      'Nyan! Everywhere is green!',
+      'Look! Birds! I\'m going to follow them.',
+      'Can I attach the bird? Yes?',
+      'Too many bugs here. Nyan'
+    ]
+  },
+  karaoke: {
+    url: require('./images/Dates/karaoke.gif'),
+    talks: [
+      'Nyan! I love karaoke! :D',
+      'Nyan~~ Nyan~~~~ Nyaaaan~~',
+      'Nyaaaaaaaan~~~~~~~~~',
+      'What? I\'m not finished yet. Next song!'
+    ]
+  }
 };
 
 const endings = {
   happy: {
     title: 'You two are Nyanmates!',
-    comment: 'Congrats! Your cat loves you so much! Happily ever after...',
+    comment: 'Congrats! Your cat loves you so much! Hopefully happily ever after...',
     url: require('./images/Ending/happy.gif'),
   },
   died: {

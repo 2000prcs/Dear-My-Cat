@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, ImageBackground, StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
 import { 
   Container, 
   Header, 
@@ -15,7 +15,7 @@ import {
   CardItem
 } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { Images } from '../Helper';
+import { Images } from '../Data';
 
 
 export default class Cat extends Component {
