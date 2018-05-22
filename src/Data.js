@@ -134,7 +134,7 @@ const places = {
     ]
   },
   animalPark: {
-    url: require('./images/Dates/park1.gif'),
+    url: require('./images/Dates/park.gif'),
     talks: [
       'Nyan! There are so many dogs!',
       'What is this dog doing? It\'s waving its tail. This is freaking me out.',

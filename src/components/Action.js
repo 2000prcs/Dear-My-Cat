@@ -57,6 +57,7 @@ export default class Action extends Component {
     };
 
     this.handleCountSun = this.handleCountSun.bind(this);
+    this.handleDating = this.handleDating.bind(this);
   }
 
   // Calculate total turns -> user can see the ending after 10 turns
@@ -159,22 +160,73 @@ export default class Action extends Component {
       'Choose a dating location',
       'Where do you wanna go with your cat?',
       [
-        { text: 'Lake', onPress: () => this.setState({ dateSpot: 'lake' }) },
-        { text: 'Animal Park', onPress: () => this.setState({ dateSpot: 'Animal Park' }) },
-        { text: 'Cat Cafe', onPress: () => this.setState({ dateSpot: 'Cat Cafe' }) },
-        { text: 'Forest', onPress: () => this.setState({ dateSpot: 'Forest' }) },
-        { text: 'Karaoke', onPress: () => this.setState({ dateSpot: 'Karaoke' }) },
+        { text: 'Lake',
+onPress: () => this.setState({ dateSpot: 'lake' }, () => {
+          this.handleDating();
+        }) },
+        { text: 'Animal Park',
+onPress: () => this.setState({ dateSpot: 'animalPark' }, () => {
+          this.handleDating();
+        }) },
+        { text: 'Cat Cafe',
+onPress: () => this.setState({ dateSpot: 'catCafe' }, () => {
+          this.handleDating();
+        }) },
+        { text: 'Forest',
+onPress: () => this.setState({ dateSpot: 'forest' }, () => {
+          this.handleDating();
+        }) },
+        { text: 'Karaoke',
+onPress: () => this.setState({ dateSpot: 'karaoke' }, () => {
+          this.handleDating();
+        }) },
       ],
       { cancelable: false }
     );
   }
   
   
-  handleDating()     
-    console.log(this.state.catData.cat);    
-    const index = Math.floor(Math.random() * dating.length);
-    this.setState({ text: dating[index] });
+  handleDating() {    
+    console.log(this.state.dateSpot);    
+    if (places[this.state.dateSpot]) {
+      this.setState({ img: places[this.state.dateSpot].url });
+    }
+    
+    const index = Math.floor(Math.random() * places[this.state.dateSpot].talks.length);
 
+    switch (this.state.dateSpot) {
+      case 'lake':
+        this.setState({ text: places[this.state.dateSpot].talks[index] });
+        this.state.catData.cat.like++;
+        this.state.catData.dateCount++;
+        break;
+      case 'animalPark':
+        this.setState({ text: places[this.state.dateSpot].talks[index] });
+        this.state.catData.cat.fun++;
+        this.state.catData.dateCount++;
+        break;
+      case 'catCafe':
+        this.setState({ text: places[this.state.dateSpot].talks[index] });
+        this.state.catData.cat.addict++;
+        this.state.catData.dateCount++;
+        break;
+      case 'forest':
+        this.setState({ text: places[this.state.dateSpot].talks[index] });
+        this.state.catData.cat.health++;
+        this.state.catData.dateCount++;
+        break;
+      case 'karaoke':
+        this.setState({ text: places[this.state.dateSpot].talks[index] });
+        this.state.catData.cat.like++;
+        this.state.catData.cat.fun++;
+        this.state.catData.dateCount++;
+        break;
+      default:
+    }
+
+    if (this.handleCountSun() >= 10) {
+      this.props.history.push('/endingintro', this.state.catData);
+    }
   }
 
   render() {
@@ -220,19 +272,19 @@ export default class Action extends Component {
                   type: 'warning'
                 })}
             >
-              <Text>Like: {status.like}  Hate: {status.hate}  Fun: {status.fun}  Health: {status.health}  Addict: {status.addict} </Text> 
+              <Text style={{ alignSelf: 'center' }}>Like: {status.like}  Hate: {status.hate}  Fun: {status.fun}  Health: {status.health}  Addict: {status.addict} </Text> 
             </Button>
             <Button 
               style={{ alignSelf: 'stretch' }}
               danger
               onPress={() =>
                 Toast.show({
-                  text: `${status.leftTurn} turn to go for your ending!`,
-                  buttonText: 'Got it',
+                  text: 'You are so close to see your ending! Keep going!',
+                  buttonText: 'Yay',
                   type: 'danger'
                 })}
             >
-              <Text>Left Turns Until Ending: {status.leftTurn}</Text>        
+              <Text style={{ alignSelf: 'center' }}>{status.leftTurn} Turns Left Until Ending</Text>        
             </Button>
             <ImageBackground 
               resizeMode='cover' style={{ flex: 1 }} 
