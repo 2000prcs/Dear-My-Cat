@@ -17,40 +17,31 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
   > Dear My Cat (Cat Dating Simulation Game )
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
   > This game is for people who love cats and and simulation games.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
   > Do you love cats? Do you want to have your own ideal cat? Do you want to date with your cat? You can do everything with this game! Find your ideal cat and make the cat happy, see your very own ending with the cat! 
 
 ## Problem ##
-  > Describe the problem your product solves.
   > People who want to have a cat but can't.
   > People who want to date with an ideal type of someone but can't.
   > People who are bored at typical cat raising simulation games.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
   > This game makes all these people' dreams come true!
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
   > Did you dream about dating with your lovely cat? Do it now! 
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
   > You can simply open this app on your phone and choose your type, and there's your lovely cat! 
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
   > Jenn Quiao - "This is the best cat simulator ever I've played!!"
   > Jane Weesner - "I needed to play over 10 times to collect all the endings! It was amazing!" 
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
   > Start Dear My Cat now! 
