@@ -128,9 +128,9 @@ const places = {
     url: require('./images/Dates/lake.gif'),
     talks: [
       'Nyan! I hate water!',
-      'Are you going to do fishing?',
+      'Are you going fishing?',
       'Nyan! We got a huge tuna!',
-      'Nothing...Nyan'
+      'We didn\'t catch anything...Nyan(sigh)'
     ]
   },
   animalPark: {
@@ -154,7 +154,7 @@ const places = {
   forest: {
     url: require('./images/Dates/forest.gif'),
     talks: [
-      'Nyan! Everywhere is green!',
+      'Nyan! Everything is green!',
       'Look! Birds! I\'m going to follow them.',
       'Can I attack the birds? Yes?',
       'Too many bugs here. Nyan'
