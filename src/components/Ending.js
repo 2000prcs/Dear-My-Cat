@@ -58,16 +58,16 @@ export default class Ending extends Component {
           ref='img'
           source={this.state.endingImg}
         >
-          <Row style={{ backgroundColor: 'transparent', height: 450 }} />
+          <Row style={{ backgroundColor: 'transparent', height: 500 }} />
         </ImageBackground>
           <Row style={{ backgroundColor: 'transparent', height: 200 }}>
             <Card>
               <CardItem>
                 <Body>
-                  <Text style={{ fontWeight: 'bold' }}>
+                  <Text style={styles.titleText}>
                     {this.state.endingTitle}
                   </Text>
-                  <Text>
+                  <Text style={styles.textStyle}>
                     {this.state.endingComment}
                   </Text>
                 </Body>
@@ -86,14 +86,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   titleText: {
-    fontSize: 60,
+    color: 'salmon', 
     fontWeight: 'bold',
-    color: 'salmon',
-    textAlign: 'center',
-    alignSelf: 'center',
+    fontFamily: 'Avenir Next',
+    fontSize: 20
   },
-  btnStyle: {
-    alignSelf: 'center',
-    marginTop: 20,
+  textStyle: {
+    color: 'black',
+    fontFamily: 'Avenir Next',
+    fontSize: 20
   }
 });

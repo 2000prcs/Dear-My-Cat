@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ImageBackground, Alert } from 'react-native';
+import { ImageBackground, Alert, StyleSheet } from 'react-native';
 import { 
   Container, 
   Header,
@@ -33,7 +33,6 @@ import {
   dating,
   places
 } from '../Data';
-import handleDating from '../Actionhandlers';
 
 
 export default class Action extends Component {
@@ -66,6 +65,11 @@ export default class Action extends Component {
     return totalCount;
   }
 
+  handleActions(){
+    
+  }
+
+
   handleTalking() {
     const index = Math.floor(Math.random() * talks.length);
     this.setState({ text: talks[index] });
@@ -88,7 +92,7 @@ export default class Action extends Component {
   handleFeeding() {
     Alert.alert(
       'Choose Food Type!',
-      'You can choose either normal catfood or yummy catnip snack!',
+      'You can give either normal catfood or yummy catnip snack!',
       [
         { text: 'Catfood', onPress: () => this.handleCatFood() },
         { text: 'Catnip', onPress: () => this.handleSnack() },
@@ -288,7 +292,6 @@ onPress: () => this.setState({ dateSpot: 'karaoke' }, () => {
             </Button>
             <ImageBackground 
               resizeMode='cover' style={{ flex: 1 }} 
-              ref='img'
               source={this.state.img}
             >
             <Row style={{ backgroundColor: 'transparent', height: 400 }} />
@@ -301,7 +304,7 @@ onPress: () => this.setState({ dateSpot: 'karaoke' }, () => {
               <Card>
               <CardItem>
                 <Body>
-                  <Text ref='text'>
+                  <Text style={styles.fontStyle}>
                     {this.state.text}
                   </Text>
                 </Body>
@@ -337,3 +340,14 @@ onPress: () => this.setState({ dateSpot: 'karaoke' }, () => {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white'
+  },
+  fontStyle: {
+    fontFamily: 'Avenir Next',
+    fontSize: 18
+  },
+});

@@ -69,11 +69,11 @@ export default class Cat extends Component {
               <Card>
               <CardItem header button onPress={() => 
                 alert(`${catType} Cat is very sensitive and addictive. You might need to be extra careful about giving snacks otherwise terrible thing will happen!`)}>
-                <Text style={styles.fontStyle}>You Chose {catType} Cat!</Text>
+                <Text style={styles.titleText}>You Chose {catType} Cat!</Text>
               </CardItem>
               <CardItem>
                 <Body>
-                  <Text>
+                  <Text style={styles.textStyle}>
                     Hi {username}, Nyan!
                     Nice to meet you, Nyan! 
                     From now, I'm your cat, Nyan.
@@ -82,7 +82,7 @@ export default class Cat extends Component {
                 </Body>
               </CardItem>
               <CardItem footer button onPress={() => this.props.history.push('/action', this.props.history.location.state)}>
-                <Text style={styles.fontStyle}>Let's Date!</Text>
+                <Text style={styles.titleText}>Let's Date!</Text>
               </CardItem>
             </Card>
             </Row>
@@ -99,8 +99,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white'
   },
-  fontStyle: {
+  titleText: {
     color: 'salmon', 
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'Avenir Next',
+    fontSize: 20
   },
+  textStyle: {
+    color: 'black',
+    fontFamily: 'Avenir Next',
+    fontSize: 18
+  }
 });
