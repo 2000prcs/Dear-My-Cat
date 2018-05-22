@@ -6,7 +6,7 @@ import { Button, Text } from 'native-base';
 const Home = ({ history }) => (
   <View style={styles.container}>      
       <Text style={styles.titleText}>Hi {history.location.state}!</Text>
-      <Text style={styles.titleText}>Choose Your Ideal Type</Text>
+      <Text style={styles.titleText}>What Is Your Ideal Type?</Text>
       <Button style={styles.btnStyle} rounded warning onPress={() => history.push('/type', history.location.state)}>
         <Text>I think I Know My Type</Text>
       </ Button> 

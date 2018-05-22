@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, ImageBackground, StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
 import { 
   Container, 
   Header, 
@@ -15,7 +15,7 @@ import {
   CardItem
 } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { Cats, Images } from '../Helper';
+import { Images } from '../Data';
 
 
 export default class Cat extends Component {
@@ -39,6 +39,7 @@ export default class Cat extends Component {
         }
       });
     });
+    
     return (
       <Container style={styles.container} >
           <ImageBackground 
@@ -81,7 +82,6 @@ export default class Cat extends Component {
                 </Body>
               </CardItem>
               <CardItem footer button onPress={() => this.props.history.push('/action', this.props.history.location.state)}>
-              {console.log(this.props.history.location)}
                 <Text style={styles.fontStyle}>Let's Date!</Text>
               </CardItem>
             </Card>
@@ -92,9 +92,7 @@ export default class Cat extends Component {
       </Container>
     );
   }
-
-};
-
+}
 
 const styles = StyleSheet.create({
   container: {

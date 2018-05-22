@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  ImageBackground,
-  AppRegistry
-} from 'react-native';
-import { 
-  NativeRouter, 
-  Switch, 
-  Route, 
-  Link 
-} from 'react-router-native';
+import { View, ImageBackground, AppRegistry } from 'react-native';
+import { NativeRouter, Switch, Route } from 'react-router-native';
+import { Root } from 'native-base';
 import Home from './src/components/Home';
 import Login from './src/components/Login';
 import Question from './src/components/Question';
 import Type from './src/components/Type';
 import Cat from './src/components/Cat';
 import Action from './src/components/Action';
+import EndingIntro from './src/components/EndingIntro';
 import Ending from './src/components/Ending';
 
 
@@ -24,6 +16,7 @@ export default class App extends Component {
 
   render() {
     return (
+      <Root>
         <NativeRouter>
           <ImageBackground
             style={{
@@ -43,12 +36,14 @@ export default class App extends Component {
                 <Route exact path='/type' component={Type} />
                 <Route exact path='/cat' component={Cat} />
                 <Route exact path='/action' component={Action} />
+                <Route exact path='/endingintro' component={EndingIntro} />
                 <Route exact path='/ending' component={Ending} />
               </Switch>
           </View>
           </ImageBackground>
-
         </NativeRouter>
+      </Root>
+
     );
   }
 }

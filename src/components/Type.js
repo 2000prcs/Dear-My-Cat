@@ -12,7 +12,7 @@ import {
   Body, 
   Icon } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { Images } from '../Helper';
+import { Images } from '../Data';
 
 
 export default class Type extends Component {
