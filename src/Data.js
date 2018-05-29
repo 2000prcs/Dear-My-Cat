@@ -69,7 +69,7 @@ const talks = [
   'Nyan, do you wanna talk more? Fine.',
   'Sometimes I go out and walk around this neighborhood. A little exercise? Nyan',
   'I like to lay down and enjoy the sunshine. It feels so good...',
-  'The best is tho, a cozy box! The darkness and cozyness....Ahhh...Nyan',
+  'The best is tho, a cozy box! The darkness and cozyness....Ummm...Nyan',
   'Enough talking! Stop talking to me otherwise I\'ll scratch your face, Nyan'
 ];
 
@@ -128,9 +128,9 @@ const places = {
     url: require('./images/Dates/lake.gif'),
     talks: [
       'Nyan! I hate water!',
-      'Are you going to do fishing?',
+      'Are you going fishing?',
       'Nyan! We got a huge tuna!',
-      'Nothing...Nyan'
+      'We didn\'t catch anything...Nyan(sigh)'
     ]
   },
   animalPark: {
@@ -154,9 +154,9 @@ const places = {
   forest: {
     url: require('./images/Dates/forest.gif'),
     talks: [
-      'Nyan! Everywhere is green!',
+      'Nyan! Everything is green!',
       'Look! Birds! I\'m going to follow them.',
-      'Can I attach the bird? Yes?',
+      'Can I attack the birds? Yes?',
       'Too many bugs here. Nyan'
     ]
   },
@@ -179,7 +179,7 @@ const endings = {
   },
   died: {
     title: 'Your cat died!',
-    comment: 'Oh no! How dare you!', 
+    comment: 'Oh no! You are so terrible!', 
     url: require('./images/Ending/died.jpg'),
   },
   cheat: {
