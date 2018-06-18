@@ -13,9 +13,10 @@ import {
   Icon } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Images } from '../Data';
+import { connect } from 'react-redux';
 
 
-export default class Type extends Component {
+class Type extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -90,3 +91,10 @@ const styles = StyleSheet.create({
   }
 });
 
+const mapStateToProps = (state) => ({
+    catType: state.changeCat
+});
+
+export default connect(
+  mapStateToProps
+)(Type);

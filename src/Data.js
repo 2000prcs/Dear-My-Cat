@@ -1,7 +1,6 @@
 class Cats {
   constructor() {
     this.like = 0;
-    this.hate = 0;
     this.fun = 0;
     this.health = 0;
     this.addict = 0;
@@ -74,10 +73,10 @@ const talks = [
 ];
 
 const talkingImage = {
- talk0: require('./images/Talk/talk0.gif'),
- talk1: require('./images/Talk/talk1.gif'),
- talk2: require('./images/Talk/talk2.gif'),
- talk3: require('./images/Talk/talk3.gif'),
+ 0: require('./images/Talk/talk0.gif'),
+ 1: require('./images/Talk/talk1.gif'),
+ 2: require('./images/Talk/talk2.gif'),
+ 3: require('./images/Talk/talk3.gif'),
 };
 
 const feedTime = [
@@ -91,16 +90,17 @@ const feedTime = [
 ];
 
 const feedingImage = {
-  food0: require('./images/Food/food0.gif'),
-  food1: require('./images/Food/food1.gif'),
-  food2: require('./images/Food/food2.gif'),
-  food3: require('./images/Food/food3.gif'),
-  food4: require('./images/Food/food4.gif'),
-  food5: require('./images/Food/food5.gif'),
+  0: require('./images/Food/food0.gif'),
+  1: require('./images/Food/food1.gif'),
+  2: require('./images/Food/food2.gif'),
+  3: require('./images/Food/food3.gif'),
+  4: require('./images/Food/food4.gif'),
+  5: require('./images/Food/food5.gif'),
 };
 
-const snackImage = require('./images/snack.gif');
-
+const snackImage = {
+  0: require('./images/snack.gif')
+}
 
 const playTime = [
   'Nyan! Play Time!',
@@ -112,9 +112,9 @@ const playTime = [
 ];
 
 const playingImage = {
-  play0: require('./images/Play/play0.gif'),
-  play1: require('./images/Play/play1.gif'),
-  play2: require('./images/Play/play2.gif'),
+  0: require('./images/Play/play0.gif'),
+  1: require('./images/Play/play1.gif'),
+  2: require('./images/Play/play2.gif'),
 };  
 
 const dating = [

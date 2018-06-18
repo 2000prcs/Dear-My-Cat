@@ -34,7 +34,6 @@ From within the root directory:
 npm install
 ```
 
-
 > Start the app:
 
 ```sh

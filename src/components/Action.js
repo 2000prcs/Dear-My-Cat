@@ -30,7 +30,6 @@ import {
   snackImage,
   playTime,
   playingImage,
-  dating,
   places
 } from '../Data';
 
@@ -55,36 +54,67 @@ export default class Action extends Component {
       }
     };
 
-    this.handleCountSun = this.handleCountSun.bind(this);
+    this.handleCountSum = this.handleCountSum.bind(this);
     this.handleDating = this.handleDating.bind(this);
   }
 
   // Calculate total turns -> user can see the ending after 10 turns
-  handleCountSun() {
+  handleCountSum() {
     const totalCount = this.state.catData.talkCount + this.state.catData.feedCount + this.state.catData.playCount + this.state.catData.dateCount;
     return totalCount;
   }
 
-  handleActions(){
+  handleAction(action) {
+    let text;
+    let images;
     
-  }
-
-
-  handleTalking() {
-    const index = Math.floor(Math.random() * talks.length);
-    this.setState({ text: talks[index] });
-    if (this.state.catData.talkCount === 5) {
-      this.state.catData.cat.like--;
-      this.state.catData.cat.hate++;
-      this.state.catData.talkCount++;
-    } else {
-      this.state.catData.cat.like++;
-      this.state.catData.talkCount++;
+    switch (action) {
+      case 'talks':
+        text = talks;
+        images = talkingImage;
+        this.state.catData.cat.like--;
+        this.state.catData.talkCount++;
+      break;
+      case 'food':
+        text = feedTime;
+        images = feedingImage;
+        if (this.state.catData.feedCount === 3) {
+          this.state.catData.cat.health--;
+        } else {
+          this.state.catData.cat.health++;
+          this.state.catData.cat.like++;
+        }
+        this.state.catData.feedCount++;
+      break;
+      case 'snack':
+        text = feedTime;
+        images = snackImage;
+        this.state.catData.cat.like++;
+        this.state.catData.cat.addict++;
+        this.state.catData.feedCount++;
+      break;
+      case 'play':
+        text = playTime;
+        images = playingImage;
+        if (this.state.catData.playCount === 3) {
+          this.state.catData.cat.like--;
+        } else {
+          this.state.catData.cat.fun++;
+          this.state.catData.cat.like++;
+          this.state.catData.cat.health++;
+        }
+        this.state.catData.playCount++;
+      break;
+      default:
+      break;
     }
-    const imageIndex = Math.floor(Math.random() * Object.keys(talkingImage).length);
-    this.setState({ img: talkingImage[`talk${imageIndex}`] });
 
-    if (this.handleCountSun() >= 10) {
+    const index = Math.floor(Math.random() * text.length);
+    this.setState({ text: text[index] });
+    const imageIndex = Math.floor(Math.random() * Object.keys(images).length);
+    this.setState({ img: images[imageIndex] });
+
+    if (this.handleCountSum() >= 10) {
       this.props.history.push('/endingintro', this.state.catData);
     }
   }
@@ -94,75 +124,17 @@ export default class Action extends Component {
       'Choose Food Type!',
       'You can give either normal catfood or yummy catnip snack!',
       [
-        { text: 'Catfood', onPress: () => this.handleCatFood() },
-        { text: 'Catnip', onPress: () => this.handleSnack() },
+        { text: 'Catfood', onPress: () => this.handleAction('food') },
+        { text: 'Catnip', onPress: () => this.handleAction('snack') },
       ],
       { cancelable: false }
     );
   }
 
-  handleCatFood() {
-    const index = Math.floor(Math.random() * feedTime.length);
-    this.setState({ text: feedTime[index] });
-    if (this.state.catData.feedCount === 3) {
-      this.state.catData.cat.like++;
-      this.state.catData.cat.health--;
-      this.state.catData.feedCount++;
-    } else if (this.state.catData.feedCount === 5) {
-      this.state.catData.cat.health--;
-      this.state.catData.feedCount++;
-    } else {
-      this.state.catData.cat.health++;
-      this.state.catData.cat.like++;
-      this.state.catData.feedCount++;
-    }
-    const imageIndex = Math.floor(Math.random() * Object.keys(feedingImage).length);
-    this.setState({ img: feedingImage[`food${imageIndex}`] });
-
-    if (this.handleCountSun() >= 10) {
-      this.props.history.push('/endingintro', this.state.catData);
-    }
-  }
-
-  handleSnack() {
-    const index = Math.floor(Math.random() * feedTime.length);
-    this.setState({ text: feedTime[index] });
-    this.state.catData.cat.like++;
-    this.state.catData.cat.addict++;
-    this.state.catData.feedCount++;
-    this.setState({ img: snackImage });
-    if (this.handleCountSun() >= 10) {
-      this.props.history.push('/endingintro', this.state.catData);
-    }
-  }
-
-
-  handlePlaying() {
-    const index = Math.floor(Math.random() * playTime.length);
-    this.setState({ text: playTime[index] });
-    if (this.state.catData.playCount === 5) {
-      this.state.catData.cat.like--;
-      this.state.catData.cat.hate++;
-      this.state.catData.playCount++;
-    } else {
-      this.state.catData.cat.fun++;
-      this.state.catData.cat.like++;
-      this.state.catData.cat.hate--;
-      this.state.catData.cat.health++;
-      this.state.catData.playCount++;
-    }
-    const imageIndex = Math.floor(Math.random() * Object.keys(playingImage).length);
-    this.setState({ img: playingImage[`play${imageIndex}`] });
-
-    if (this.handleCountSun() >= 10) {
-      this.props.history.push('/endingintro', this.state.catData);
-    }
-  }
-
   chooseDatingSpot() {
     Alert.alert(
-      'Choose a dating location',
-      'Where do you wanna go with your cat?',
+      'Choose Dating Location!',
+      'Where do you want to go with your cat?',
       [
         { text: 'Lake',
 onPress: () => this.setState({ dateSpot: 'lake' }, () => {
@@ -191,57 +163,47 @@ onPress: () => this.setState({ dateSpot: 'karaoke' }, () => {
   
   
   handleDating() {    
-    console.log(this.state.dateSpot);    
     if (places[this.state.dateSpot]) {
       this.setState({ img: places[this.state.dateSpot].url });
     }
     
     const index = Math.floor(Math.random() * places[this.state.dateSpot].talks.length);
+    this.setState({ text: places[this.state.dateSpot].talks[index] });
 
     switch (this.state.dateSpot) {
       case 'lake':
-        this.setState({ text: places[this.state.dateSpot].talks[index] });
         this.state.catData.cat.like++;
-        this.state.catData.dateCount++;
-        break;
+      break;
       case 'animalPark':
-        this.setState({ text: places[this.state.dateSpot].talks[index] });
         this.state.catData.cat.fun++;
-        this.state.catData.dateCount++;
-        break;
+      break;
       case 'catCafe':
-        this.setState({ text: places[this.state.dateSpot].talks[index] });
         this.state.catData.cat.addict++;
-        this.state.catData.dateCount++;
-        break;
+      break;
       case 'forest':
-        this.setState({ text: places[this.state.dateSpot].talks[index] });
         this.state.catData.cat.health++;
-        this.state.catData.dateCount++;
-        break;
+      break;
       case 'karaoke':
-        this.setState({ text: places[this.state.dateSpot].talks[index] });
         this.state.catData.cat.like++;
         this.state.catData.cat.fun++;
-        this.state.catData.dateCount++;
-        break;
+      break;
       default:
     }
+    this.state.catData.dateCount++;
 
-    if (this.handleCountSun() >= 10) {
+    if (this.handleCountSum() >= 10) {
       this.props.history.push('/endingintro', this.state.catData);
     }
   }
 
   render() {
-    console.log(this.props.history.location.state);
     const status = {
       like: this.state.catData.cat.like,
       hate: this.state.catData.cat.hate,
       fun: this.state.catData.cat.fun,
       health: this.state.catData.cat.health,
       addict: this.state.catData.cat.addict,
-      leftTurn: 10 - this.handleCountSun() 
+      leftTurn: 10 - this.handleCountSum() 
     };
 
     return (
@@ -316,7 +278,7 @@ onPress: () => this.setState({ dateSpot: 'karaoke' }, () => {
         </Content>
         <Footer>
           <FooterTab>
-            <Button badge vertical onPress={() => this.handleTalking()}>
+            <Button badge vertical onPress={() => this.handleAction('talks')}>
               <Badge><Text>2</Text></Badge>
               <Icon name="ios-chatbubbles" />
               <Text>Talk</Text>
@@ -325,7 +287,7 @@ onPress: () => this.setState({ dateSpot: 'karaoke' }, () => {
               <Icon name="restaurant" />
               <Text>Feed</Text>
             </Button>
-            <Button active badge vertical onPress={() => this.handlePlaying()}>
+            <Button active badge vertical onPress={() => this.handleAction('play')}>
               <Badge ><Text>51</Text></Badge>
               <Icon active name="ios-paw" />
               <Text>Play</Text>

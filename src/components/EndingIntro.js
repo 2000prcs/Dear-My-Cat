@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Link } from 'react-router-native';
 import { Button, Text } from 'native-base';
-import { endings } from '../Data';
 
 export default class EndingIntro extends Component {
   constructor(props) {
@@ -10,41 +8,36 @@ export default class EndingIntro extends Component {
     this.state = {
       ending: '',
     };
+
+    this.directToEnding = this.directToEnding.bind(this);
   }
-  
+
 
   handleEnding() {
     const like = this.props.history.location.state.cat.like;
-    const hate = this.props.history.location.state.cat.hate;
     const health = this.props.history.location.state.cat.health;
     const fun = this.props.history.location.state.cat.fun;
     const addict = this.props.history.location.state.cat.addict;
 
-    if (like >= 5 && hate <= 0 && health >= 3 && fun >= 3) {
-      this.setState({ ending: 'happy' }, () => {
-        this.props.history.push('/ending', this.state.ending);
-      });
+    if (like >= 5 && health >= 3 && fun >= 3) {
+      this.directToEnding('happy');
     } else if (health < 0) {
-      this.setState({ ending: 'died' }, () => {
-        this.props.history.push('/ending', this.state.ending);
-      });
-    } else if (like >= 3 && hate > like && fun < 0) {
-      this.setState({ ending: 'cheat' }, () => {
-        this.props.history.push('/ending', this.state.ending);
-      });
+      this.directToEnding('died');
+    } else if (like >= 3 && fun <= 3) {
+      this.directToEnding('cheat');
     } else if (like < 3) {
-      this.setState({ ending: 'kidnapped' }, () => {
-        this.props.history.push('/ending', this.state.ending);
-      });
+      this.directToEnding('kidnapped');
     } else if (addict >= 3) {
-      this.setState({ ending: 'druggy' }, () => {
-        this.props.history.push('/ending', this.state.ending);
-      });
+      this.directToEnding('druggy');
     } else {
-      this.setState({ ending: 'transform' }, () => {
-        this.props.history.push('/ending', this.state.ending);
-      });
-    }    
+      this.directToEnding('transform');
+    }
+  }
+
+  directToEnding(ending) {
+    this.setState({ ending }, () => {
+      this.props.history.push('/ending', this.state.ending);
+    });
   }
 
   render() {

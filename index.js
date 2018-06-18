@@ -10,40 +10,44 @@ import Cat from './src/components/Cat';
 import Action from './src/components/Action';
 import EndingIntro from './src/components/EndingIntro';
 import Ending from './src/components/Ending';
+import store from './src/store/store.js';
+
+import { Provider } from 'react-redux';
+
 
 
 export default class App extends Component {
 
   render() {
     return (
-      <Root>
-        <NativeRouter>
-          <ImageBackground
-            style={{
-              // position: 'absolute',
-              width: '100%',
-              height: '100%',
-              justifyContent: 'center',
-            }}
-            source={require('./src/images/intro.jpg')}
-          >
-          <View
-            style={{ flex: 1, justifyContent: 'center' }}>
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/login' component={Login} />
-                <Route exact path='/question' component={Question} />
-                <Route exact path='/type' component={Type} />
-                <Route exact path='/cat' component={Cat} />
-                <Route exact path='/action' component={Action} />
-                <Route exact path='/endingintro' component={EndingIntro} />
-                <Route exact path='/ending' component={Ending} />
-              </Switch>
-          </View>
-          </ImageBackground>
-        </NativeRouter>
-      </Root>
-
+      <Provider store={store}>
+        <Root>
+          <NativeRouter>
+            <ImageBackground
+              style={{
+                width: '100%',
+                height: '100%',
+                justifyContent: 'center',
+              }}
+              source={require('./src/images/intro.jpg')}
+            >
+            <View
+              style={{ flex: 1, justifyContent: 'center' }}>
+                <Switch>
+                  <Route exact path='/' component={Home} />
+                  <Route exact path='/login' component={Login} />
+                  <Route exact path='/question' component={Question} />
+                  <Route exact path='/type' component={Type} />
+                  <Route exact path='/cat' component={Cat} />
+                  <Route exact path='/action' component={Action} />
+                  <Route exact path='/endingintro' component={EndingIntro} />
+                  <Route exact path='/ending' component={Ending} />
+                </Switch>
+            </View>
+            </ImageBackground>
+          </NativeRouter>
+        </Root>
+      </Provider>
     );
   }
 }

@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ImageBackground } from 'react-native';
+import { StyleSheet, ImageBackground } from 'react-native';
 import { Link } from 'react-router-native';
-import { Container, Content, Header, Left, Button, Text, Icon, Body, Title, Right, Card, CardItem } from 'native-base';
-import { Col, Row, Grid } from 'react-native-easy-grid';
+import { 
+  Container, 
+  Content, 
+  Header, 
+  Left, 
+  Button, 
+  Text, 
+  Icon, 
+  Body, 
+  Title, 
+  Right, 
+  Card, 
+  CardItem } from 'native-base';
+import { Row, Grid } from 'react-native-easy-grid';
 import {   
   endings
 } from '../Data';
