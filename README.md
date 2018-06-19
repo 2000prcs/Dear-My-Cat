@@ -11,7 +11,7 @@
 👉 Watch it <a href="https://youtu.be/li4cXbUKn8Q">here</a>.
 <br>
 
-<img src="https://media.giphy.com/media/1BeDBtMmZybiTeDDOO/giphy.gif">
+<img src="https://media.giphy.com/media/1BeDBtMmZybiTeDDOO/200w_d.gif">
 
 ## Getting Started
 
