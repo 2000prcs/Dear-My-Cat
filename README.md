@@ -8,7 +8,7 @@
 2. [Tests](#running-the-tests)
 
 ## Demo
-👉 Watch it <a href="https://youtu.be/li4cXbUKn8Q">here</a>.
+👉 Watch [Demo Video](https://youtu.be/li4cXbUKn8Q").
 <br>
 
 <img src="https://i.imgur.com/Eqz2M8O.png"> <img src="https://i.imgur.com/pAPtKri.png"> <img src="https://i.imgur.com/9PNbgtu.png">
