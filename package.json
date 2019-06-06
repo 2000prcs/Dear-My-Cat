@@ -12,7 +12,7 @@
     "mongoose": "^5.1.1",
     "native-base": "^2.4.5",
     "react": "^16.6.3",
-    "react-native": "^0.58.5",
+    "react-native": "^0.59.9",
     "react-native-easy-grid": "^0.1.17",
     "react-native-vector-icons": "^4.6.0",
     "react-redux": "^5.0.7",
