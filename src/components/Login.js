@@ -1,48 +1,49 @@
-import React, { Component } from 'react';
-import { 
-  SafeAreaView, 
-  View, 
-  StyleSheet, 
-  TextInput, 
+import React, {Component} from 'react';
+import {
+  SafeAreaView,
+  View,
+  StyleSheet,
+  TextInput,
   StatusBar,
   Keyboard,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
-  ScrollView 
+  ScrollView,
 } from 'react-native';
-import { Button, Text } from 'native-base';
-
+import {Button, Text} from 'native-base';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: ''
+      username: '',
     };
   }
 
   render() {
     return (
-      <SafeAreaView >
+      <SafeAreaView>
         <ScrollView>
-          <StatusBar barStyle='light-content' />
-            <KeyboardAvoidingView behavior='padding' styles={styles.container}>
-              <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={styles.container}>
-                <View>
-                  <Text style={styles.titleText}>Dear My Cat</Text> 
-                  <View style={styles.infoContainer}>
-                    <TextInput 
-                      style={styles.input} 
-                      placeholder='Enter your name'
-                      placeholderTextColor='black'
-                      // keyboardType='email-address'
-                      // returnKeyType='next'
-                      returnKeyType='go'
-                      autoCorrect={false}
-                      // onSubmitEditing={() => this.refs.txtPassword.focus()}
-                      onChangeText={(username) => this.setState({ username })}
-                    />
-                    {/* <TextInput 
+          <StatusBar barStyle="light-content" />
+          <KeyboardAvoidingView behavior="padding" styles={styles.container}>
+            <TouchableWithoutFeedback
+              onPress={Keyboard.dismiss}
+              style={styles.container}>
+              <View>
+                <Text style={styles.titleText}>Dear My Cat</Text>
+                <View style={styles.infoContainer}>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Enter your name"
+                    placeholderTextColor="black"
+                    // keyboardType='email-address'
+                    // returnKeyType='next'
+                    returnKeyType="go"
+                    autoCorrect={false}
+                    // onSubmitEditing={() => this.refs.txtPassword.focus()}
+                    onChangeText={(username) => this.setState({username})}
+                  />
+                  {/* <TextInput 
                       style={styles.input} 
                       placeholder='Enter password'
                       placeholderTextColor='black'
@@ -51,16 +52,21 @@ export default class Login extends Component {
                       autoCorrect={false}
                       ref={'txtPassword'}
                     /> */}
-                   <Button style={{ alignSelf: 'center' }} rounded warning onPress={() => this.props.history.push('/question', this.state.username)}>
-                      <Text style={styles.buttonText}>I'm Ready!</Text>
-                    </Button>
-                  </View>
+                  <Button
+                    style={{alignSelf: 'center'}}
+                    rounded
+                    warning
+                    onPress={() =>
+                      this.props.history.push('/question', this.state.username)
+                    }>
+                    <Text style={styles.buttonText}>I'm Ready!</Text>
+                  </Button>
                 </View>
-              </TouchableWithoutFeedback>
-            </KeyboardAvoidingView>
-          </ScrollView>
-        </SafeAreaView>
-
+              </View>
+            </TouchableWithoutFeedback>
+          </KeyboardAvoidingView>
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 }
@@ -92,13 +98,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
     color: 'white',
     paddingHorizontal: 10,
-    marginBottom: 20
+    marginBottom: 20,
   },
   buttonText: {
     textAlign: 'center',
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 18
-  }
+    fontSize: 18,
+  },
 });
-

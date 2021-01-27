@@ -1,4 +1,4 @@
-framework module Pods_CatDatingGame {
+module Pods_CatDatingGame {
   umbrella header "Pods-CatDatingGame-umbrella.h"
 
   export *
