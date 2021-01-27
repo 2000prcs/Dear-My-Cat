@@ -4,8 +4,7 @@
 
 ## Table of Contents
 
-1. [Installation](#installation)
-2. [Tests](#running-the-tests)
+[Installation](#installation)
 
 ## Demo
 ### 👉 Watch [Demo Video](https://youtu.be/li4cXbUKn8Q)
@@ -17,7 +16,7 @@
 ## Getting Started
 
 - To play it on your phone: Open xcodeproj file in [Xcode](https://developer.apple.com/xcode/)
-- To simulate it on your laptop: Run `react-native run-ios`
+- To simulate it on your laptop for iOS: Run `npx react-native run-ios`
 
 ## Prerequisites
 
@@ -35,18 +34,19 @@ From within the root directory:
 npm install
 ```
 
-> Start the app:
+> Start Metro:
 
 ```sh
-react-native run-ios
+npx react-native start
+```
+
+> Start the app (target OS: iOS):
+
+```sh
+npx react-native run-ios
 ```
 
 ## Built With
 
 * [React Native](https://reactjs.org/)
 * [NPM](https://www.npmjs.com/) - Dependency Management
-
-
-## Style Guide
-
-Refer to the [Rallycoding Style Guide](https://github.com/StephenGrider/ESLint-Rallycoding).
