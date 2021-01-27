@@ -1,91 +1,99 @@
-import React, { Component } from 'react';
-import { ImageBackground, StyleSheet } from 'react-native';
-import { 
-  Container, 
-  Header, 
-  Content, 
-  Title, 
-  Text, 
-  Button, 
-  Icon, 
-  Left, 
-  Body, 
+import React, {Component} from 'react';
+import {ImageBackground, StyleSheet} from 'react-native';
+import {
+  Container,
+  Header,
+  Content,
+  Title,
+  Text,
+  Button,
+  Icon,
+  Left,
+  Body,
   Right,
   Card,
-  CardItem
+  CardItem,
 } from 'native-base';
-import { Row, Grid } from 'react-native-easy-grid';
-import { Images } from '../Data';
-
+import {Row, Grid} from 'react-native-easy-grid';
+import {Images} from '../Data';
 
 export default class Cat extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
-  
+
   render() {
     let catImage;
 
     const catType = this.props.history.location.state.catType;
     const username = this.props.history.location.state.username;
-    
-    Images.forEach(group => {
-      group.forEach(image => {
+
+    Images.forEach((group) => {
+      group.forEach((image) => {
         if (image.type === catType) {
           catImage = image.url;
         }
       });
     });
-    
+
     return (
-      <Container style={styles.container} >
-          <ImageBackground 
-          resizeMode='cover' style={{ flex: 1 }} 
-          source={catImage}
-          >
+      <Container style={styles.container}>
+        <ImageBackground resizeMode="cover" style={{flex: 1}} source={catImage}>
           <Header>
-          <Left>
-            <Button transparent onPress={() => this.props.history.goBack()}>
-              <Icon name='arrow-back' />
-              <Text>Back</Text>
-            </Button>
-          </Left>
-          <Body>
+            <Left>
+              <Button transparent onPress={() => this.props.history.goBack()}>
+                <Icon name="arrow-back" />
+                <Text>Back</Text>
+              </Button>
+            </Left>
+            <Body>
               <Title>Dear My Cat</Title>
             </Body>
             <Right>
               <Button transparent>
-                <Icon name='menu' />
+                <Icon name="menu" />
               </Button>
             </Right>
           </Header>
           <Content>
             <Grid>
-            <Row style={{ backgroundColor: 'transparent', height: 450 }} />
-            <Row style={{ backgroundColor: 'transparent', height: 200 }}>
-              <Card>
-              <CardItem header button onPress={() => 
-                alert(`${catType} Cat is very sensitive and addictive. You might need to be extra careful about giving snacks otherwise terrible thing will happen!`)}>
-                <Text style={styles.titleText}>You Chose {catType} Cat!</Text>
-              </CardItem>
-              <CardItem>
-                <Body>
-                  <Text style={styles.textStyle}>
-                    Hi {username}, Nyan!
-                    Nice to meet you, Nyan! 
-                    From now, I'm your cat, Nyan.
-                    Please take care of me well, Nyan :)
-                  </Text>
-                </Body>
-              </CardItem>
-              <CardItem footer button onPress={() => this.props.history.push('/action', this.props.history.location.state)}>
-                <Text style={styles.titleText}>Let's Date!</Text>
-              </CardItem>
-            </Card>
-            </Row>
+              <Row style={{backgroundColor: 'transparent', height: 450}} />
+              <Row style={{backgroundColor: 'transparent', height: 200}}>
+                <Card>
+                  <CardItem
+                    header
+                    button
+                    onPress={() =>
+                      alert(
+                        `${catType} Cat is very sensitive and addictive. You might need to be extra careful about giving snacks otherwise terrible thing will happen!`,
+                      )
+                    }>
+                    <Text style={styles.titleText}>
+                      You Chose {catType} Cat!
+                    </Text>
+                  </CardItem>
+                  <CardItem>
+                    <Body>
+                      <Text style={styles.textStyle}>
+                        Hi {username}, Nyan! Nice to meet you, Nyan! From now,
+                        I'm your cat, Nyan. Please take care of me well, Nyan :)
+                      </Text>
+                    </Body>
+                  </CardItem>
+                  <CardItem
+                    footer
+                    button
+                    onPress={() =>
+                      this.props.history.push(
+                        '/action',
+                        this.props.history.location.state,
+                      )
+                    }>
+                    <Text style={styles.titleText}>Let's Date!</Text>
+                  </CardItem>
+                </Card>
+              </Row>
             </Grid>
           </Content>
         </ImageBackground>
@@ -97,17 +105,17 @@ export default class Cat extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   titleText: {
-    color: 'salmon', 
+    color: 'salmon',
     fontWeight: 'bold',
     fontFamily: 'Avenir Next',
-    fontSize: 20
+    fontSize: 20,
   },
   textStyle: {
     color: 'black',
     fontFamily: 'Avenir Next',
-    fontSize: 18
-  }
+    fontSize: 18,
+  },
 });

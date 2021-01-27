@@ -1,20 +1,24 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Button, Text } from 'native-base';
+import {View, StyleSheet} from 'react-native';
+import {Button, Text} from 'native-base';
 
-const Home = ({ history }) => (
-  <View style={styles.container}>      
-      <Text style={styles.titleText}>Hi {history.location.state}!</Text>
-      <Text style={styles.titleText}>What Is Your Ideal Type?</Text>
-      <Button style={styles.btnStyle} rounded warning onPress={() => history.push('/type', history.location.state)}>
-        <Text>I think I Know My Type</Text>
-      </ Button> 
+const Home = ({history}) => (
+  <View style={styles.container}>
+    <Text style={styles.titleText}>Hi {history.location.state}!</Text>
+    <Text style={styles.titleText}>What Is Your Ideal Type?</Text>
+    <Button
+      style={styles.btnStyle}
+      rounded
+      warning
+      onPress={() => history.push('/type', history.location.state)}>
+      <Text>I think I Know My Type</Text>
+    </Button>
   </View>
 );
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   titleText: {
     fontSize: 60,
@@ -26,7 +30,7 @@ const styles = StyleSheet.create({
   btnStyle: {
     alignSelf: 'center',
     marginTop: 20,
-  }
+  },
 });
 
 export default Home;

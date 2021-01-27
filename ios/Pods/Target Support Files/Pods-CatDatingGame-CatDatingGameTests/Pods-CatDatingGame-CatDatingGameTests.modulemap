@@ -1,0 +1,6 @@
+module Pods_CatDatingGame_CatDatingGameTests {
+  umbrella header "Pods-CatDatingGame-CatDatingGameTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
