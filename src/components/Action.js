@@ -259,8 +259,8 @@ export default class Action extends Component {
                 })
               }>
               <Text style={{alignSelf: 'center'}}>
-                Like: {status.like} Hate: {status.hate} Fun: {status.fun}{' '}
-                Health: {status.health} Addict: {status.addict}{' '}
+                Like: {status.like} Fun: {status.fun} Health: {status.health}{' '}
+                Addict: {status.addict}{' '}
               </Text>
             </Button>
             <Button
